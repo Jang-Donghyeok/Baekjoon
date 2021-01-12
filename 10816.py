@@ -19,7 +19,6 @@ import sys
 
 n = int(input())
 num = list(map(int, sys.stdin.readline().split()))
-n2 = int(input())
 num2 = list(map(int, sys.stdin.readline().split()))
 answer = {}
 for i in num:
