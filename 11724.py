@@ -4,6 +4,7 @@ input = sys.stdin.readline
 def dfs(n):
     visit[n] = True
     for i in N[n]:
+        print(N)
         if not visit[i]:
             dfs(i)
 
