@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
 
-n, quiz = map(int,input().split())
+n, quiz = map(int, input().split())
 N = []
 dic = {}
 for i in range(1,n+1):
