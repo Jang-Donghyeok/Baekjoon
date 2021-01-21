@@ -2,12 +2,12 @@ import sys
 from collections import deque
 input = sys.stdin.readline
 
-def find(w, h):
+def find(x, y):
     direction = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)]
 
     q = deque()
-    q.append((w,h))
-    land[w][h] = 0
+    q.append((x,y))
+    land[x][y] = 0
     while q:
         place = q.popleft()
         for i in range(8):
@@ -22,8 +22,8 @@ def find(w, h):
 
 while True:
     w, h = map(int, input().split())
-    count = 0
     land = []
+    count = 0
     if w == 0 and h == 0:
         break
     for _ in range(h):
