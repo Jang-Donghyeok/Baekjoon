@@ -31,6 +31,7 @@ M, N = map(int, r().split())
 box, ripe = [], deque()
 for i in range(N):
     row = list(map(int, r().split()))
+    print(row)
     for j in range(M):
         if row[j] == 1:
             ripe.append([i, j])

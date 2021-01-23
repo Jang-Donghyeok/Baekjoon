@@ -3,7 +3,7 @@ from collections import deque
 input = sys.stdin.readline
 
 
-def change(x,y):
+def change(box):
     dx = [0, 0, 1, -1]
     dy = [-1, 1, 0, 0]
 
@@ -11,20 +11,26 @@ def change(x,y):
 
     while ripe:
         count += 1
-        for i in range(len(ripe)):
+        for _ in range(len(ripe)):
             x, y = ripe.popleft()
 
-            for j in range(4):
+            for i in range(4):
                 nx = x + dx[i]
                 ny = y + dy[i]
 
-              
+                if (0 <= nx < 3) and (0 <= ny < 3) and (box[nx][ny] == '*'):
+                    box[nx][ny] = "."
+                    ripe.append([nx,ny])
+    return count
 
 
 n = int(input())
 for i in range(n):
     box, ripe = [], deque()
     for i in range(3):
-        space = list(map(str,input().split()))
+        space = list(map(str, input().strip()))
+        for j in range(3):
+            if space[j] == "*":
+                ripe.append([i, j])
         box.append(space)
-    print(box)
+    print(change(box))
