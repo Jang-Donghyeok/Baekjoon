@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
 
-num = str(input())
+num = str(input().strip())
 if int(num) < 10:
     num = '0' + num
 count = 0
@@ -15,7 +15,4 @@ while num != sum:
         sum = num2 + add[0]
     num1, num2 = sum[0], sum[1]
     count += 1
-    if num == sum:
-        print(123)
-        break
 print(count)
