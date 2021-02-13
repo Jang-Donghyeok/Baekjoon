@@ -4,7 +4,6 @@ N1 = list(input().strip())
 N2 = []
 n = int(input())
 def edit(str):
-    global cursor
     if str[0] == 'L' and N1 != []:
         N2.append(N1.pop())
     elif str[0] == 'D' and N2 != []:
