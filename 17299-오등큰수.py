@@ -10,7 +10,7 @@ for i in num:
         Num[i] += 1
     except:
         Num[i] = 1
-result = [-1 for i in range(n)]
+result = [-1]*n
 for i in range(len(num)):
     try:
         while N and Num[num[N[-1]]] < Num[num[i]]:
