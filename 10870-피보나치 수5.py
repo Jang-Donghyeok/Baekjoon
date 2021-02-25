@@ -5,9 +5,9 @@ def pibo(n):
     elif n == 1:
         sum = 1
     else:
-        for i in range(2, n+1):
-            sum = pibo(i-1) + pibo(i-2)
+        sum = pibo(n-2) + pibo(n-1)
+    return sum
 n = int(input())
 sum = 0
-pibo(n)
-print(sum)
+print(pibo(n))
+
