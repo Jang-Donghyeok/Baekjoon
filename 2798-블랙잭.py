@@ -1,19 +1,16 @@
 import sys
-from collections import deque
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
-print(M)
-num = deque()
-num.append(map(int, input().split()))
+num = list(map(int, input().split()))
 add = 0
-while True:
-    if len(num) != 0:
-        x = num.popleft()
-        for i in range(len(num)):
-            for j in range(len(num)):
-                add = x + num[i] + num[j]
-                if add >= M:
-                    print(add)
-                    break
+for i in range(0,N-2):
+    for j in range(i+1, N-1):
+        for k in range(j+2, N):
+            if num[i] + num[j] + num[k] > M:
+                continue
+            else:
+                add = max(add, num[i] + num[j] + num[k])
+print(add)
+
 
