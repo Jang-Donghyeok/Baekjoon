@@ -1,16 +1,18 @@
 import sys
 input = sys.stdin.readline
 
-sosu = [1] * 1000001
-sosu[1] = 0
-for i in range(2, 1001):
-    for j in range(i*2, 1000001, i):
-        sosu[j] = 0
 n = int(input())
-for i in range(n):
-    a = int(input())
+nums = [int(input()) for _ in range(n)]
+m = max(nums)
+sosu = [False,False] + [True] * (m-1)
+for i in range(2, int(m**0.5)+1):
+    if sosu[i]:
+        for j in range(i+i, m+1, i):
+            if sosu[j]:
+                sosu[j] = False
+for num in nums:
     count = 0
-    for j in range(1, a+1):
-        if sosu[a-j] and sosu[j]:
+    for i in range((num//2) +1):
+        if sosu[i] and sosu[num-i]:
             count += 1
     print(count)
