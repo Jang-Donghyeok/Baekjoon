@@ -1,5 +1,5 @@
 n = int(input())
-dp = [[1]*2]*n
-for i in range(n):
-    for j in range(2):
-        dp[i][j] =
+a,b = 1,3
+for _ in range(n):
+    a,b = b,(2*b+a)%9901
+print(a)
