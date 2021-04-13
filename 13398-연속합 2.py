@@ -3,14 +3,14 @@ input = sys.stdin.readline
 
 n = int(input())
 A = list(map(int, input().split()))
-B = []
-for i in A:
-      B.append(i)
-B = [B]*10
-for i in range(1,len(A)):
-        A[i] = max(A[i], A[i-1]+A[i])
-print(max(A))
-for i in range(11):
-        for j in range(i):
-                del B[i][j]
-                print(B)
+dp = [[0, 0] for i in range(n)]
+dp[0][0] = A[0]
+m = -100000000
+if n > 1:
+    for i in range(1, n):
+        dp[i][0] = max(dp[i-1][0]+A[i], A[i])
+        dp[i][1] = max(dp[i-1][0], dp[i-1][1]+A[i])
+        m = max(m, dp[i][0], dp[i][1])
+    print(m)
+else:
+    print(dp[0][0])
