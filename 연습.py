@@ -1,18 +1,17 @@
-import turtle # 터틀 그래픽 모듈을 포함한다.
+def calc(num1, num2, act="+"):
+    if act == "+":
+        print(num1 + num2)
+    elif act == "-":
+        print(num1 - num2)
+    elif act == "/":
+        print(num1 / num2)
+    elif act == "*":
+        print(num1 * num2)
+    else:
+        print("잘못된 연산기호입니다.")
 
-t = turtle.Turtle()
-def square(length):
-    for i in range(4):
-        t.forward(length)
-        t.left(90)
-def drawit(x, y):
-    t.penup()
-    t.goto(x, y)
-    t.pendown()
-    t.begin_fill()
-    t.color("green")
-    square(50)
-    t.end_fill()
-
-s = turtle.Screen() # 그림이 그려지는 화면을 얻는다.
-s.onscreenclick(drawit) # 마우스 클릭 이벤트 처리 함수를 등록한다.
+num1 = int(input("정수1 :"))
+num2 = int(input("정수2 : "))
+calc(num1, num2)
+calc(num1, num2, "*")
+calc(num1, num2, "^")
