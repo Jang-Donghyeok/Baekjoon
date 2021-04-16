@@ -1,17 +1,8 @@
-def calc(num1, num2, act="+"):
-    if act == "+":
-        print(num1 + num2)
-    elif act == "-":
-        print(num1 - num2)
-    elif act == "/":
-        print(num1 / num2)
-    elif act == "*":
-        print(num1 * num2)
-    else:
-        print("잘못된 연산기호입니다.")
-
-num1 = int(input("정수1 :"))
-num2 = int(input("정수2 : "))
-calc(num1, num2)
-calc(num1, num2, "*")
-calc(num1, num2, "^")
+def vsum(*num):
+    sum = 0
+    for i in num:
+        sum += i
+    return sum
+print("2+3=", vsum(2, 3))
+print("2+3+4=", vsum(2, 3, 4))
+print("2+3+4+5=", vsum(2, 3, 4, 5))
