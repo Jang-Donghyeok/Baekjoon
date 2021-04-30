@@ -24,4 +24,5 @@ elif count >= 3:
     print("30만원입니다.")
 elif count >= 2:
     print("5만원입니다.")
-
+else:
+    print("꽝")
