@@ -1,4 +1,30 @@
-domains = {"kr":"대한민국", "sk":"슬로바키아","no":"노르웨이","us":"미국","jp":"일본","hu":"헝가리","de":"독일"}
-for k, v in domains.items():
-    print(k, ": ", v)
-    print("")
+from tkinter import *
+window = Tk()
+window.title("My Calculator")
+display = Entry(window, width=33, bg="yellow")
+display.grid(row=0, column=0, columnspan=5)
+button_list = [
+'7', '8', '9', '/', 'C',
+'4', '5', '6', '*', ' ',
+'1', '2', '3', '-', ' ',
+'0', '.', '=', '+', ' ']
+row_index = 1
+col_index = 0
+def click(key):
+    if key == "=":
+        result = eval(display.get())
+        s = str(result)
+        display.insert(END, "=" + s)
+    else:
+        display.insert(END, key)
+        row_index = 1
+        col_index = 0
+for button_text in button_list:
+    def process(t=button_text):
+        click(t)
+    Button(window, text=button_text, width=5, command=process).grid(row=row_index, column=col_index)
+    col_index += 1
+    if col_index > 4:
+        row_index += 1
+        col_index = 0
+window.mainloop()
