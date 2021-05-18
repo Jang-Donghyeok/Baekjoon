@@ -1,30 +1,35 @@
 from tkinter import *
+import random
 window = Tk()
-window.title("My Calculator")
-display = Entry(window, width=33, bg="yellow")
-display.grid(row=0, column=0, columnspan=5)
-button_list = [
-'7', '8', '9', '/', 'C',
-'4', '5', '6', '*', ' ',
-'1', '2', '3', '-', ' ',
-'0', '.', '=', '+', ' ']
-row_index = 1
-col_index = 0
-def click(key):
-    if key == "=":
-        result = eval(display.get())
-        s = str(result)
-        display.insert(END, "=" + s)
+num = 0
+betNum = random.randint(1,100)
+def run():
+    global num
+    global betNum
+    num = int(e.get())
+    if num < betNum:
+        firstLabel['text'] = "너무 낮아요!!"
+    elif num > betNum:
+        firstLabel['text'] = "너무 높아요!!"
     else:
-        display.insert(END, key)
-        row_index = 1
-        col_index = 0
-for button_text in button_list:
-    def process(t=button_text):
-        click(t)
-    Button(window, text=button_text, width=5, command=process).grid(row=row_index, column=col_index)
-    col_index += 1
-    if col_index > 4:
-        row_index += 1
-        col_index = 0
+        firstLabel['text'] = "정답입니다!"
+def reset():
+    global num
+    global betNum
+    e.delete(0,END)
+    secondLabel.config(text="")
+    betNum = random.randint(1,100)
+    num = 0
+firstLabel = Label(window, text="1에서 100사이의 수를 입력하세요.")
+secondLabel = Label(window,)
+thridLabel = Label(window, )
+firstLabel.grid(row=1, column=0, columnspan=2)
+secondLabel.grid(row=2, column=0, columnspan=2)
+thridLabel.grid(row=4, column=0, columnspan=2)
+e = Entry(window)
+e.grid(row=3, column=0, columnspan=2)
+firstBtn = Button(window, text="숫자를 입력", command = run)
+secondBtn = Button(window, text="게임을 다시 실행", command = reset)
+firstBtn.grid(row=5, column=0)
+secondBtn.grid(row=5, column=1)
 window.mainloop()
