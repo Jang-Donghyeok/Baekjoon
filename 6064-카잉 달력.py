@@ -1,11 +1,13 @@
-def num(m, n, x, y):
-    while x <= m * n:
-        if (x - y) % n == 0:
-            return x
-        x += m
-    return -1
+import sys
+input = sys.stdin.readline
 
 t = int(input())
-for i in range(t):
-    m, n, x, y = map(int, input().split())
-    print(num(m, n, x, y))
+for _ in range(t):
+    M, N, x, y = map(int, input().split())
+    x, y = x - 1, y - 1
+    ans = -1
+    for i in range(x, M * N + 1, M):
+        if i % N == y:
+            ans = i + 1
+            break
+    print(ans)
