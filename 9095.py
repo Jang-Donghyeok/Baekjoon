@@ -8,7 +8,7 @@ def solve(n):
     else:
         return solve(n-1) + solve(n-2) + solve(n-3)
 n = int(input())
+
 for i in range(n):
     num1 = int(input())
     print(solve(num1))
-
