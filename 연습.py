@@ -1,35 +1,22 @@
-from tkinter import *
-import random
-window = Tk()
-num = 0
-betNum = random.randint(1,100)
-def run():
-    global num
-    global betNum
-    num = int(e.get())
-    if num < betNum:
-        firstLabel['text'] = "너무 낮아요!!"
-    elif num > betNum:
-        firstLabel['text'] = "너무 높아요!!"
-    else:
-        firstLabel['text'] = "정답입니다!"
-def reset():
-    global num
-    global betNum
-    e.delete(0,END)
-    secondLabel.config(text="")
-    betNum = random.randint(1,100)
-    num = 0
-firstLabel = Label(window, text="1에서 100사이의 수를 입력하세요.")
-secondLabel = Label(window,)
-thridLabel = Label(window, )
-firstLabel.grid(row=1, column=0, columnspan=2)
-secondLabel.grid(row=2, column=0, columnspan=2)
-thridLabel.grid(row=4, column=0, columnspan=2)
-e = Entry(window)
-e.grid(row=3, column=0, columnspan=2)
-firstBtn = Button(window, text="숫자를 입력", command = run)
-secondBtn = Button(window, text="게임을 다시 실행", command = reset)
-firstBtn.grid(row=5, column=0)
-secondBtn.grid(row=5, column=1)
-window.mainloop()
+inFileName = input("입력 파일 이름:")
+outFileName = input("출력 파일 이름:")
+
+infile = open(inFileName, "r")
+outfile = open(outFileName, "w")
+
+total = 0.0
+count = 0
+
+line = infile.readline()
+while line != "":
+    value = float(line)
+    total += value
+    count += 1
+    line = infile.readline()
+
+outfile.write("합계="+ str(total)+"\n")
+avg =total / count
+outfile.write("평균="+ str(avg)+ "\n")
+
+infile.close()
+outfile.close()
