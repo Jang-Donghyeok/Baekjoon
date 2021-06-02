@@ -1,22 +1,5 @@
-inFileName = input("입력 파일 이름:")
-outFileName = input("출력 파일 이름:")
+import numpy as np
 
-infile = open(inFileName, "r")
-outfile = open(outFileName, "w")
-
-total = 0.0
-count = 0
-
-line = infile.readline()
-while line != "":
-    value = float(line)
-    total += value
-    count += 1
-    line = infile.readline()
-
-outfile.write("합계="+ str(total)+"\n")
-avg =total / count
-outfile.write("평균="+ str(avg)+ "\n")
-
-infile.close()
-outfile.close()
+b = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(b)
+print(b[0][2])
